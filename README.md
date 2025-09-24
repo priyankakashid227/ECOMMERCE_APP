@@ -24,34 +24,31 @@ Flask-based Mini E-Commerce Web Application supporting Customer, Seller, and Adm
 - View all orders
 
 ---
-
 ## Directory Structure
 ECOMMERCE_APP/
-│── app.py
-│── requirements.txt
-│── ecommerce.db
-│
+├── app.py
+├── requirements.txt
+├── ecommerce.db
 ├── routes/
-│ ├── users/
-│ │ └── users.py
-│ ├── products/
-│ │ └── products.py
-│ └── orders/
-│ └── orders.py
-│
+│   ├── users/
+│   │   └── users.py
+│   ├── products/
+│   │   └── products.py
+│   └── orders/
+│       └── orders.py
 ├── templates/
-│ ├── users/
-│ │ ├── register.html
-│ │ ├── login.html
-│ │ └── dashboard.html
-│ ├── products/
-│ │ └── products.html
-│ └── orders/
-│ └── orders.html
-│
+│   ├── users/
+│   │   ├── register.html
+│   │   ├── login.html
+│   │   └── dashboard.html
+│   ├── products/
+│   │   └── products.html
+│   └── orders/
+│       └── orders.html
 └── static/
-├── css/
-└── js/
+    ├── css/
+    └── js/
+
 
 
 ---
