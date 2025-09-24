@@ -25,8 +25,9 @@ Flask-based Mini E-Commerce Web Application supporting Customer, Seller, and Adm
 
 ---
 ## Directory Structure
+'''
 ECOMMERCE_APP/
-('''├── app.py
+├── app.py
 ├── requirements.txt
 ├── ecommerce.db
 ├── routes/
@@ -47,7 +48,9 @@ ECOMMERCE_APP/
 │       └── orders.html
 └── static/
     ├── css/
-    └── js/''')
+    └── js/
+
+'''  
 
 
 
