@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block title %}Products{% endblock %}
+
+{% block content %}
+<div class="products-container">
+    <h2>Welcome {{ username }}!</h2>
+    <h3>All Products</h3>
+
+    {% if products %}
+    <table border="1" cellpadding="8" cellspacing="0">
+        <tr>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Stock</th>
+            <th>Seller</th>
+            <th>Action</th>
+        </tr>
+        {% for product in products %}
+        <tr>
+            <td>{{ product['Name'] }}</td>
+            <td>₹{{ product['Price'] }}</td>
+            <td>{{ product['Stock'] }}</td>
+            <td>{{ product['SellerName'] }}</td>
+            <td>
+                {% if role == "Customer" %}
+                    <a href="{{ url_for('orders.place_order', product_id=product['ProductID']) }}">Order</a>
+                {% elif role == "Seller" and product['SellerID'] == session['user_id'] %}
+                    <span>Your Product</span>
+                {% else %}
+                    <span>-</span>
+                {% endif %}
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% else %}
+        <p>No products available.</p>
+    {% endif %}
+
+    {% if role == "Seller" %}
+        <p><a href="{{ url_for('products.add_product') }}">➕ Add Product</a></p>
+    {% endif %}
+
+    <p><a href="{{ url_for('auth.dashboard') }}">⬅ Back to Dashboard</a></p>
+</div>
+{% endblock %}

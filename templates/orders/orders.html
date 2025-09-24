@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block title %}Orders{% endblock %}
+
+{% block content %}
+<h2>Order History</h2>
+{% if orders %}
+<table border="1" cellpadding="8" cellspacing="0">
+    <tr>
+        <th>Order ID</th>
+        <th>Product</th>
+        <th>Price</th>
+        <th>Quantity</th>
+        <th>Order Date</th>
+    </tr>
+    {% for order in orders %}
+    <tr>
+        <td>{{ order['OrderID'] }}</td>
+        <td>{{ order['ProductName'] }}</td>
+        <td>₹{{ order['Price'] }}</td>
+        <td>{{ order['Quantity'] }}</td>
+        <td>{{ order['OrderDate'] }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% else %}
+<p>No orders found.</p>
+{% endif %}
+<p><a href="{{ url_for('auth.dashboard') }}">⬅ Back to Dashboard</a></p>
+{% endblock %}

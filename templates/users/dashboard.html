@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+<div class="dashboard-container">
+    <h2>Welcome, {{ username }}!</h2>
+    <p>Role: {{ role }}</p>
+
+    <ul class="dashboard-menu">
+        {% if role == 'Customer' %}
+            <li><a href="{{ url_for('products.view_products') }}">View Products</a></li>
+            <li><a href="{{ url_for('orders.view_orders') }}">My Orders</a></li>
+        {% elif role == 'Seller' %}
+            <li><a href="{{ url_for('products.view_products') }}">My Products</a></li>
+            <li><a href="{{ url_for('products.add_product') }}">Add Product</a></li>
+        {% elif role == 'Admin' %}
+            <li><a href="{{ url_for('auth.manage_users') }}">Manage Users</a></li>
+            <li><a href="{{ url_for('products.view_products') }}">Manage Products</a></li>
+            <li><a href="{{ url_for('orders.view_orders') }}">View All Orders</a></li>
+        {% endif %}
+        <li><a href="{{ url_for('auth.logout') }}">Logout</a></li>
+    </ul>
+</div>
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}Place Order{% endblock %}
+
+{% block content %}
+<h2>Place Order for {{ product['Name'] }}</h2>
+<p>Price: ₹{{ product['Price'] }}</p>
+<p>Available Stock: {{ product['Stock'] }}</p>
+
+<form method="POST">
+    <label>Quantity:</label>
+    <input type="number" name="quantity" min="1" max="{{ product['Stock'] }}" value="1" required>
+    <button type="submit">Place Order</button>
+</form>
+<p><a href="{{ url_for('products.view_products') }}">Back to Products</a></p>
+{% endblock %}
